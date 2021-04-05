@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">TallerRegistro</string>
+    <string name="app_name">App ECCI</string>
+    <string name="text_title">Registro App ECCI</string>
+    <string name="text_subtitle">Para registrarte por favor llena todos los datos solicitados</string>
+    <string name="name_input">Nombre</string>
+    <string name="last_name_input">Apellidos</string>
+    <string name="type_document_input">Tipo de documento:</string>
+    <string name="document_input">N° de documento</string>
+    <string name="birth_date_input">Fecha de nacimiento</string>
+    <string name="hobbies_input">Hobbies</string>
+    <string name="password_input">Contraseña</string>
+    <string name="confirm_password_input">Confirmar contraseña</string>
+    <string name="reset_button">Limpiar</string>
+    <string name="register_button">Registrar</string>
+    <string name="agree">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="type_document_textView">C.C.</string>
+    <string name="document_acronymCC">C.C.</string>
+    <string name="document_acronymCE">C.E.</string>
+    <string name="document_acronymPA">PA</string>
+    <string name="document_acronymRC">R.C.</string>
+    <string name="document_acronymTI">T.I.</string>
+    <string name="document_CC">Cédula de ciudadanía</string>
+    <string name="document_CE">Cédula de extranjería</string>
+    <string name="document_PA">Pasaporte</string>
+    <string name="document_RC">Registro civil</string>
+    <string name="document_TI">Tarjeta de identidad</string>
+    <string name="hobbies_textView">Hobbies:</string>
+    <string name="hobbies_button">Escoger Hobbies</string>
 </resources>

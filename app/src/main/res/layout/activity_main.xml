@@ -7,12 +7,222 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/text_title"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/text_title"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_subtitle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/text_subtitle"
+        android:gravity="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        />
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/name_input"
+        android:inputType="text"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_subtitle"
+        />
+
+    <EditText
+        android:id="@+id/last_name_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10sp"
+        android:hint="@string/last_name_input"
+        android:inputType="text"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_input"
+        />
+
+    <TextView
+        android:id="@+id/type_document_textView"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="0sp"
+        android:text="@string/type_document_input"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_input"
+        />
+
+    <Button
+        android:id="@+id/type_document_button"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_light"
+        android:text="@string/type_document_textView"
+        android:textAllCaps="false"
+        android:textColor="@color/black_light"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toEndOf="@+id/type_document_textView"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_input"
+        />
+
+    <EditText
+        android:id="@+id/document_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/document_input"
+        android:inputType="number"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_document_button"
+        />
+
+    <EditText
+        android:id="@+id/birth_date_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/birth_date_input"
+        android:inputType="numberPassword"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/document_input"
+        />
+
+    <TextView
+        android:id="@+id/hobbies_textView"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="0sp"
+        android:text="@string/hobbies_textView"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birth_date_input" />
+
+    <Button
+        android:id="@+id/hobbies_button"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_light"
+        android:text="@string/hobbies_button"
+        android:textAllCaps="false"
+        android:textColor="@color/black_light"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.712"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birth_date_input" />
+
+    <EditText
+        android:id="@+id/hobbies_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/hobbies_input"
+        android:inputType="text"
+        android:enabled="false"
+        android:background="@drawable/register_inputs"
+        android:textColor="@color/black_light"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbies_button"
+        />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/password_input"
+        android:inputType="textPassword"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbies_input"
+        />
+
+    <EditText
+        android:id="@+id/confirm_password_input"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/confirm_password_input"
+        android:inputType="textPassword"
+        android:background="@drawable/register_inputs"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_input"
+        />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/reset_button"
+        android:text="@string/reset_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.237"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password_input"
+        />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/register_button"
+        android:text="@string/register_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reset_button"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password_input"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
