@@ -64,11 +64,11 @@
     <TextView
         android:id="@+id/type_document_textView"
         android:layout_width="150dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:paddingLeft="0sp"
-        android:text="@string/type_document_input"
+        android:text="@string/type_document_textView"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
@@ -81,16 +81,15 @@
         android:layout_width="140dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:background="@color/gray_light"
-        android:text="@string/type_document_textView"
+        android:background="@drawable/form_button"
+        android:text="@string/type_document_button"
         android:textAllCaps="false"
-        android:textColor="@color/black_light"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toEndOf="@+id/type_document_textView"
-        app:layout_constraintTop_toBottomOf="@+id/last_name_input"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/last_name_input" />
 
     <EditText
         android:id="@+id/document_input"
@@ -106,60 +105,72 @@
         app:layout_constraintTop_toBottomOf="@+id/type_document_button"
         />
 
-    <EditText
-        android:id="@+id/birth_date_input"
-        android:layout_width="300dp"
-        android:layout_height="35dp"
+    <TextView
+        android:id="@+id/birth_date_textView"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:hint="@string/birth_date_input"
-        android:inputType="numberPassword"
-        android:background="@drawable/register_inputs"
-        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="0sp"
+        android:text="@string/birth_date_textView"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/document_input"
         />
 
+    <Button
+        android:id="@+id/birth_date_button"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/form_button"
+        android:text="@string/birth_date_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/birth_date_textView"
+        app:layout_constraintTop_toBottomOf="@+id/document_input" />
+
     <TextView
         android:id="@+id/hobbies_textView"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:paddingLeft="0sp"
         android:text="@string/hobbies_textView"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birth_date_input" />
+        app:layout_constraintTop_toBottomOf="@+id/birth_date_button" />
 
     <Button
         android:id="@+id/hobbies_button"
-        android:layout_width="220dp"
+        android:layout_width="140dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:background="@color/gray_light"
+        android:background="@drawable/form_button"
         android:text="@string/hobbies_button"
         android:textAllCaps="false"
-        android:textColor="@color/black_light"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.712"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birth_date_input" />
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/hobbies_textView"
+        app:layout_constraintTop_toBottomOf="@+id/birth_date_button" />
 
-    <EditText
-        android:id="@+id/hobbies_input"
-        android:layout_width="300dp"
-        android:layout_height="35dp"
+    <TextView
+        android:id="@+id/hobbies_text_choice"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:hint="@string/hobbies_input"
-        android:inputType="text"
-        android:enabled="false"
-        android:background="@drawable/register_inputs"
         android:textColor="@color/black_light"
-        android:textSize="14sp"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hobbies_button"
@@ -176,7 +187,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hobbies_input"
+        app:layout_constraintTop_toBottomOf="@+id/hobbies_text_choice"
         />
 
     <EditText

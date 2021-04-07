@@ -19,4 +19,5 @@
     <color name="orange_light">#FFA200</color>
     <color name="gray_light">#DCDCDC</color>
     <color name="gray_dark">#AFAFAF</color>
+    <color name="gray_font">#4A4A4A</color>
 </resources>
