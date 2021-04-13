@@ -4,55 +4,94 @@
     <string name="text_subtitle">Para registrarte por favor llena todos los datos solicitados</string>
     <string name="name_input">Nombre</string>
     <string name="last_name_input">Apellidos</string>
-    <string name="type_document_button">N.N.</string>
+    <string name="type_document_button">Tipo</string>
     <string name="type_document_textView">Tipo de documento</string>
     <string name="document_input">N° de documento</string>
     <string name="birth_date_textView">Fecha de nacimiento</string>
-    <string name="birth_date_button">1990-1-1</string>
-    <string name="hobbies_input">Hobbies</string>
+    <string name="date">Fecha</string>
+    <string name="hobbies_textView">Hobbies</string>
+    <string name="hobbies_button">Elegir</string>
     <string name="password_input">Contraseña</string>
     <string name="confirm_password_input">Confirmar contraseña</string>
     <string name="reset_button">Limpiar</string>
     <string name="register_button">Registrar</string>
     <string name="agree">Aceptar</string>
     <string name="cancel">Cancelar</string>
-    <string name="document_acronymCC">C.C.</string>
-    <string name="document_acronymCE">C.E.</string>
-    <string name="document_acronymPA">PA</string>
-    <string name="document_acronymRC">R.C.</string>
-    <string name="document_acronymTI">T.I.</string>
-    <string name="document_CC">Cédula de ciudadanía</string>
-    <string name="document_CE">Cédula de extranjería</string>
-    <string name="document_PA">Pasaporte</string>
-    <string name="document_RC">Registro civil</string>
-    <string name="document_TI">Tarjeta de identidad</string>
-    <string name="hobbies_textView">Hobbies</string>
-    <string name="hobbies_button">Listado</string>
-    <string name="january">Enero</string>
-    <string name="february">Febrero</string>
-    <string name="march">Marzo</string>
-    <string name="april">Abril</string>
-    <string name="may">Mayo</string>
-    <string name="june">Junio</string>
-    <string name="july">Julio</string>
-    <string name="august">Agosto</string>
-    <string name="september">Septiembre</string>
-    <string name="october">Octubre</string>
-    <string name="november">Noviembre</string>
-    <string name="december">Diciembre</string>
+    <string name="title_button_reset">Limpiar formulario</string>
+    <string name="message_button_reset">Estás seguro que quieres limpiar los datos del formulario</string>
+    <string name="clean_form">Se limpio el formulario</string>
+    <string-array name="acronym">
+        <item>C.C.</item>
+        <item>C.E.</item>
+        <item>PA</item>
+        <item>R.C.</item>
+        <item>T.I.</item>
+    </string-array>
+    <string-array name="document_name">
+        <item>Cédula de ciudadanía</item>
+        <item>Cédula de extranjería</item>
+        <item>Pasaporte</item>
+        <item>Registro civil</item>
+        <item>Tarjeta de identidad</item>
+    </string-array>
     <string name="fields_required">Campos obligatorios</string>
     <string name="fields_required_description">Debes completar los campos:</string>
     <string name="different_passwords">Constraseñas incorrecta</string>
     <string name="different_passwords_description">Las contraseñas no coinciden, deben ser iguales</string>
-    <string name="hobbie_1">Leer</string>
-    <string name="hobbie_2">Dormir</string>
-    <string name="hobbie_3">Jugar video juegos</string>
-    <string name="hobbie_4">Hacer ejercicio</string>
-    <string name="hobbie_5">Bailar</string>
-    <string name="hobbie_6">Viajar</string>
-    <string name="hobbie_7">Ver series de TV</string>
-    <string name="hobbie_8">Caminar</string>
-    <string name="hobbie_9">Cocinar</string>
-    <string name="hobbie_10">Escuchar música</string>
-    <string name="clean_form">Se limpio el formulario</string>
+    <string name="future_date">Fecha incorrecta</string>
+    <string name="future_date_description">La fecha de nacimiento no puede estar en el futuro</string>
+    <string-array name="hobbies">
+        <item>Leer</item>
+        <item>Dormir</item>
+        <item>Jugar video juegos</item>
+        <item>Hacer ejercicio</item>
+        <item>Bailar</item>
+        <item>Viajar</item>
+        <item>Ver series de TV</item>
+        <item>Caminar</item>
+        <item>Cocinar</item>
+        <item>Escuchar música</item>
+    </string-array>
+    <string name="home_title">Bienvenido <i>%1$s</i></string>
+    <string name="home_subtitle">Aquí encontraras toda tu información </string>
+    <string name="home_button_user">Usuario</string>
+    <string name="home_button_hobbies">Hobbies</string>
+    <string name="home_button_logout">Cerrar sesión</string>
+    <string name="frg_user_title">Información de usuario</string>
+    <string name="frg_user_name">Nombre:</string>
+    <string name="frg_user_last_name">Apellido:</string>
+    <string name="frg_user_type_document">Tipo de documento:</string>
+    <string name="frg_user_document">Documento:</string>
+    <string name="frg_user_birthdate">Fecha de nacimiento:</string>
+    <string name="frg_user_hobbies">Hobbies:</string>
+    <string name="frg_user_password">Contraseña:</string>
+    <string name="frg_hobbies_title">Hobbies de usuario</string>
+    <string name="frg_hobbies_subtitle">Hobbies:</string>
+    <string name="frg_hobbies_button">Editar Hobbies</string>
+    <string name="hobbies_required">Debes elegir al menos un Hobbie</string>
+    <string name="title_tyc">Términos y condiciones de uso</string>
+    <string name="content_tyc"><b>INFORMACIÓN RELEVANTE</b>\n\n
+        Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos  que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.\n\n
+        El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en cualquier momento, en caso de que se haya registrado y que sea necesario para la compra de alguno de nuestros productos. https://www.ecci.edu.co/es/Bogota/ no asume la responsabilidad en caso de que entregue dicha clave a terceros.\n\n
+        Todas las compras y transacciones que se lleven a cabo por medio de este sitio web, están sujetas a un proceso de confirmación y verificación, el cual podría incluir la verificación del stock y disponibilidad de producto, validación de la forma de pago, validación de la factura (en caso de existir) y el cumplimiento de las condiciones requeridas por el medio de pago seleccionado. En algunos casos puede que se requiera una verificación por medio de correo electrónico.\n\n
+        Los precios de los productos ofrecidos en esta Tienda Online es válido solamente en las compras realizadas en este sitio web.\n\n
+        <b>LICENCIA</b>\n\n
+        App ECCI  a través de su sitio web concede una licencia para que los usuarios utilicen  los productos que son vendidos en este sitio web de acuerdo a los Términos y Condiciones que se describen en este documento.\n\n
+        <b>USO NO AUTORIZADO</b>\n\n
+        En caso de que aplique (para venta de software, templetes, u otro producto de diseño y programación) usted no puede colocar uno de nuestros productos, modificado o sin modificar, en un CD, sitio web o ningún otro medio y ofrecerlos para la redistribución o la reventa de ningún tipo.\n\n
+        <b>PROPIEDAD</b>\n\n
+        Usted no puede declarar propiedad intelectual o exclusiva a ninguno de nuestros productos, modificado o sin modificar. Todos los productos son propiedad  de los proveedores del contenido. En caso de que no se especifique lo contrario, nuestros productos se proporcionan  sin ningún tipo de garantía, expresa o implícita. En ningún esta compañía será  responsables de ningún daño incluyendo, pero no limitado a, daños directos, indirectos, especiales, fortuitos o consecuentes u otras pérdidas resultantes del uso o de la imposibilidad de utilizar nuestros productos.\n\n
+        <b>POLÍTICA DE REEMBOLSO Y GARANTÍA</b>\n\n
+        En el caso de productos que sean  mercancías irrevocables no-tangibles, no realizamos reembolsos después de que se envíe el producto, usted tiene la responsabilidad de entender antes de comprarlo.  Le pedimos que lea cuidadosamente antes de comprarlo. Hacemos solamente excepciones con esta regla cuando la descripción no se ajusta al producto. Hay algunos productos que pudieran tener garantía y posibilidad de reembolso pero este será especificado al comprar el producto. En tales casos la garantía solo cubrirá fallas de fábrica y sólo se hará efectiva cuando el producto se haya usado correctamente. La garantía no cubre averías o daños ocasionados por uso indebido. Los términos de la garantía están asociados a fallas de fabricación y funcionamiento en condiciones normales de los productos y sólo se harán efectivos estos términos si el equipo ha sido usado correctamente. Esto incluye:\n\n
+        – De acuerdo a las especificaciones técnicas indicadas para cada producto.\n\n
+        – En condiciones ambientales acorde con las especificaciones indicadas por el fabricante.\n\n
+        – En uso específico para la función con que fue diseñado de fábrica.\n\n
+        – En condiciones de operación eléctricas acorde con las especificaciones y tolerancias indicadas.\n\n\n
+        <b>COMPROBACIÓN ANTIFRAUDE</b>\n\n
+        La compra del cliente puede ser aplazada para la comprobación antifraude. También puede ser suspendida por más tiempo para una investigación más rigurosa, para evitar transacciones fraudulentas.\n\n
+        <b>PRIVACIDAD</b>\n\n
+        Este https://www.ecci.edu.co/es/Bogota/ garantiza que la información personal que usted envía cuenta con la seguridad necesaria. Los datos ingresados por usuario o en el caso de requerir una validación de los pedidos no serán entregados a terceros, salvo que deba ser revelada en cumplimiento a una orden judicial o requerimientos legales.\n\n
+        La suscripción a boletines de correos electrónicos publicitarios es voluntaria y podría ser seleccionada al momento de crear su cuenta.\n\n
+        App ECCI reserva los derechos de cambiar o de modificar estos términos sin previo aviso.\n\n
+        Estas terminos y condiciones se han generado en terminosycondicionesdeusoejemplo.com.</string>
 </resources>

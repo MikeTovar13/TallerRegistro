@@ -3,83 +3,67 @@ package com.example.tallerregistro
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.os.Build
+import android.content.Intent
 import android.os.Build.VERSION_CODES
 import android.os.Build.VERSION_CODES.O
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.solver.widgets.WidgetContainer
+import kotlinx.android.synthetic.main.activity_main.*
+import java.time.LocalDate
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     // Names type documents
     private val optionsTypeDocument: Array<String>
-        get() = arrayOf(getString(R.string.document_CC),getString(R.string.document_CE),
-                getString(R.string.document_PA),getString(R.string.document_RC),
-                getString(R.string.document_TI))
+        get() = resources.getStringArray(R.array.document_name)
 
     // Name acronym type documents
     private val acronymTypeDocument
-        get() = arrayOf(getString(R.string.document_acronymCC),getString(R.string.document_acronymCE),
-                getString(R.string.document_acronymPA),getString(R.string.document_acronymRC),
-                getString(R.string.document_acronymTI))
-
-    // Hobbies checked true
-    private var hobbiesChecked = booleanArrayOf(false, false, false, false, false, false, false, false, false, false)
+        get() = resources.getStringArray(R.array.acronym)
 
     // Name hobbies existent
     private val hobbiesNames
-        get() = arrayOf(getString(R.string.hobbie_1), getString(R.string.hobbie_2),
-                getString(R.string.hobbie_3),getString(R.string.hobbie_4), getString(R.string.hobbie_5),
-                getString(R.string.hobbie_6), getString(R.string.hobbie_7), getString(R.string.hobbie_8),
-                getString(R.string.hobbie_9), getString(R.string.hobbie_10))
+        get() = resources.getStringArray(R.array.hobbies)
 
-    // Name months of year
-    private val months
-        get() = arrayOf(getString(R.string.january), getString(R.string.february), getString(R.string.march),
-                getString(R.string.april), getString(R.string.may), getString(R.string.june),
-                getString(R.string.july), getString(R.string.august), getString(R.string.september),
-                getString(R.string.october), getString(R.string.november), getString(R.string.december))
-
+    // Hobbies checked true
+    private var hobbiesChecked:BooleanArray = booleanArrayOf()
 
     @SuppressLint("NewApi")
     @RequiresApi(VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        hobbiesChecked = BooleanArray(hobbiesNames.size)
         // Button Clean Form
-        val resetForm = findViewById<Button>(R.id.reset_button)
-        resetForm.setOnClickListener {
+        reset_button.setOnClickListener {
             this.resetForm()
         }
 
         // Button show type document user
-        val typeDocumentObj = findViewById<Button>(R.id.type_document_button)
-        typeDocumentObj.setOnClickListener{
+        type_document_button.setOnClickListener{
             this.getTypeDocument()
         }
 
         // Button show list hobbies user
-        val getHobbiesObj = findViewById<Button>(R.id.hobbies_button)
-        getHobbiesObj.setOnClickListener{
+        hobbies_button.setOnClickListener{
             this.getHobbies()
         }
 
         // Button show Date picker dialog
-        val getBirthDateObj = findViewById<Button>(R.id.birth_date_button)
-        getBirthDateObj.setOnClickListener {
+        birth_date_button.setOnClickListener {
             this.getBirthday()
         }
 
         // Function get data user
-        val getDataObj = findViewById<Button>(R.id.register_button)
-        getDataObj.setOnClickListener {
+        register_button.setOnClickListener {
             this.register()
         }
     }
@@ -87,10 +71,10 @@ class MainActivity : AppCompatActivity() {
     // Function button reset
     private fun resetForm() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Limpiar formulario")
-        builder.setMessage("Estás seguro que quieres limpiar los datos del formulario")
+        builder.setTitle(getString(R.string.title_button_reset))
+        builder.setMessage(getString(R.string.message_button_reset))
         builder.setPositiveButton(R.string.agree) { _, _ ->
-             this.cleanForm()
+             this.cleanForm(true)
         }
         builder.setNegativeButton(R.string.cancel, null)
         builder.setCancelable(false)
@@ -98,26 +82,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Function clean form
-    private fun cleanForm() {
-        findViewById<EditText>(R.id.name_input).setText("") // Name
-        findViewById<EditText>(R.id.last_name_input).setText("") // Last name
-        findViewById<Button>(R.id.type_document_button).text = getString(R.string.type_document_button) // Type document
-        findViewById<EditText>(R.id.document_input).setText("") // Number document
-        findViewById<Button>(R.id.birth_date_button).text = getString(R.string.birth_date_button) // Birth date
-        findViewById<TextView>(R.id.hobbies_text_choice).text = "" // Hobbies text empty
-        hobbiesChecked = booleanArrayOf(false, false, false, false, false, false, false, false, false, false) // Values hobbies init false
-        findViewById<EditText>(R.id.password_input).setText("") // Password
-        findViewById<EditText>(R.id.confirm_password_input).setText("") // Confirm password
-        Toast.makeText(this, getText(R.string.clean_form), Toast.LENGTH_LONG).show()
+    private fun cleanForm(bool: Boolean) {
+        name_input.setText("") // Name
+        last_name_input.setText("") // Last name
+        type_document_button.text = getString(R.string.type_document_button) // Type document
+        document_input.setText("") // Number document
+        birth_date_button.text = getString(R.string.date) // Birth date
+        hobbies_text_choice.text = "" // Hobbies text empty
+        hobbiesChecked = BooleanArray(hobbiesNames.size) // Values hobbies init false
+        password_input.setText("") // Password5
+        confirm_password_input.setText("") // Confirm password
+        if (bool) {
+            Toast.makeText(this, getText(R.string.clean_form), Toast.LENGTH_LONG).show()
+        }
     }
 
     // Function show type document user
     private fun getTypeDocument() {
-        val typeDocumentObj = findViewById<Button>(R.id.type_document_button)
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.type_document_textView)
         builder.setItems(this.optionsTypeDocument) { _, position ->
-            typeDocumentObj.text = acronymTypeDocument[position];
+            type_document_button.text = acronymTypeDocument[position];
         }
         builder.show()
     }
@@ -125,20 +110,17 @@ class MainActivity : AppCompatActivity() {
     // Function get list hobbies user
     @SuppressLint("SetTextI18n")
     private fun getHobbies() {
-
-        val hobbiesTextChoice = findViewById<TextView>(R.id.hobbies_text_choice)
         val builder = AlertDialog.Builder(this)
-        builder.setTitle(R.string.type_document_textView)
+        builder.setTitle(R.string.hobbies_textView)
         builder.setPositiveButton(R.string.agree, null)
         builder.setCancelable(false)
         builder.setMultiChoiceItems(hobbiesNames, hobbiesChecked) { _, position, isChecked ->
             hobbiesChecked[position] = isChecked
             if (isChecked){
-                hobbiesTextChoice.setText(hobbiesTextChoice.text.toString() + hobbiesNames[position] + " | ")
+                hobbies_text_choice.setText(hobbies_text_choice.text.toString() + hobbiesNames[position] + " | ")
             }else{
-                hobbiesTextChoice.setText(hobbiesTextChoice.text.toString().replace(hobbiesNames[position]+" | ", ""))
+                hobbies_text_choice.setText(hobbies_text_choice.text.toString().replace(hobbiesNames[position]+" | ", ""))
             }
-
         }
         builder.show()
     }
@@ -146,11 +128,21 @@ class MainActivity : AppCompatActivity() {
     // Function get date user
     @RequiresApi(VERSION_CODES.N)
     private fun getBirthday() {
-        val dateButton = findViewById<Button>(R.id.birth_date_button)
-        val dialog = DatePickerDialog(this, { _,year,month,day ->
-            val numMonth = month+1;
-            dateButton.text = ("$year-$numMonth-$day")
-        }, 1990, 0, 1) // Meses se toman de 0 a 11 para enero a diciembre
+        var year =1990
+        var month =0
+        var day =1
+
+        if (birth_date_button.text.toString()!= getString(R.string.date)){
+            val date = birth_date_button.text.toString().split("-")
+            year = date[0].toInt()
+            month = date[1].toInt()-1
+            day = date[2].toInt()
+        }
+
+        val dialog = DatePickerDialog(this, { _,yearDate,monthDate,dayDate ->
+            val numMonth = monthDate+1;
+            birth_date_button.text = ("$yearDate-$numMonth-$dayDate")
+        }, year, month, day) // Meses se toman de 0 a 11 para enero a diciembre
         dialog.show()
     }
 
@@ -161,104 +153,110 @@ class MainActivity : AppCompatActivity() {
         // Get data for inputs
         var fieldsEmpty = " "
 
-        val nameObj = findViewById<EditText>(R.id.name_input)
-        if (nameObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.name_input) + " | "
+        // Validate name
+        fieldsEmpty+= this.validateFields(name_input, "",  getString(R.string.name_input))
+
+        // Validate last name
+        fieldsEmpty+= this.validateFields(last_name_input, "",  getString(R.string.last_name_input))
+
+        // Validate type document
+        fieldsEmpty += this.validateFields(type_document_button, getString(R.string.type_document_button), getString(R.string.type_document_textView))
+
+        // Validate number document
+        fieldsEmpty+= this.validateFields(document_input, "",  getString(R.string.document_input))
+
+        // Validate birth date
+        val isDateValidate = this.validateFields(birth_date_button, getString(R.string.date),  getString(R.string.birth_date_textView))
+
+        var dateFuture: Boolean = false
+        if (isDateValidate!="") {
+            fieldsEmpty += isDateValidate
+        } else {
+            val currentDateTime = LocalDateTime.now().toLocalDate()
+            val date = birth_date_button.text.toString().split("-")
+            val dateUser = LocalDate.of(date[0].toInt(), date[1].toInt(),date[2].toInt())
+            dateFuture = dateUser > currentDateTime  // Validation birth date
         }
 
-        val lastNameObj = findViewById<EditText>(R.id.last_name_input)
-        if (lastNameObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.last_name_input) + " | "
-        }
+        // Validate hobbies
+        fieldsEmpty+= this.validateFields(hobbies_text_choice, "",  getString(R.string.hobbies_textView))
 
-        val typeDocumentObj = findViewById<Button>(R.id.type_document_button)
-        if (typeDocumentObj.text.toString() == "" || typeDocumentObj.text.toString() == "N.N.") {
-            fieldsEmpty += getString(R.string.type_document_textView) + " | "
-        }
+        // Validate password
+        fieldsEmpty+= this.validateFields(password_input, "",  getString(R.string.password_input))
 
-        val numberDocumentObj = findViewById<EditText>(R.id.document_input)
-        if (numberDocumentObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.document_input) + " | "
-        }
-
-
-        // https://grokonez.com/kotlin/kotlin-get-current-datetime
-
-        val birthDateObj = findViewById<Button>(R.id.birth_date_button)
-        val currentDateTime = LocalDateTime.now()
-
-        println(currentDateTime.format(DateTimeFormatter.ISO_DATE))
-        println(birthDateObj.text.toString())
-        if (birthDateObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.birth_date_button) + " | "
-        }
-
-        /*
-        //val hobbiesObj = findViewById<Button>(R.id.hobbies_button)
-        if (type_document.text.toString() == "") {
-            fieldsEmpty += getString(R.string.last_name_input) + " | "
-        }
-        */
-
-        val passwordObj = findViewById<EditText>(R.id.password_input)
-        if (passwordObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.password_input) + " | "
-        }
-
-        val confirmPasswordObj = findViewById<EditText>(R.id.confirm_password_input)
-        if (confirmPasswordObj.text.toString() == "") {
-            fieldsEmpty += getString(R.string.confirm_password_input) + " | "
-        }
+        // Validate Confirm password
+        fieldsEmpty+= this.validateFields(confirm_password_input, "",  getString(R.string.confirm_password_input))
 
         // Init verifications
         if (fieldsEmpty != " ") {
             // Verify data empty
             this.verifiedData(getString(R.string.fields_required), fieldsEmpty, 1)
-        } else if (!passwordSame(passwordObj.text.toString(), confirmPasswordObj.text.toString())){
+        } else if (dateFuture) {
+            // Verify date in the future
+            this.verifiedData(getString(R.string.future_date), getString(R.string.future_date_description), 2)
+        } else if (!isPasswordSame(password_input.text.toString(), confirm_password_input.text.toString())){
             // Verify different passwords
-            this.verifiedData(getString(R.string.different_passwords), getString(R.string.different_passwords_description), 2)
+            this.verifiedData(getString(R.string.different_passwords), getString(R.string.different_passwords_description), 3)
         } else {
             // Set data to Class User
             val user = User(
-                    name = nameObj.text.toString(),
-                    last_name = lastNameObj.text.toString(),
-                    type_document = typeDocumentObj.text.toString(),
-                    number_document = numberDocumentObj.text.toString(),
-                    birth_date = birthDateObj.text.toString(),
-                    //hobbies = "1",
-                    password = passwordObj.text.toString())
+                    name = name_input.text.toString(),
+                    last_name = last_name_input.text.toString(),
+                    type_document = optionsTypeDocument[acronymTypeDocument.indexOf(type_document_button.text.toString())],
+                    number_document = document_input.text.toString(),
+                    birth_date = birth_date_button.text.toString(),
+                    hobbies_v = hobbies_text_choice.text.toString(),
+                    hobbies_c = this.hobbiesChecked,
+                    password = password_input.text.toString()
+            )
 
-            println(user)
-            this.registerSuccess()
+            this.registerSuccess(user)
         }
     }
 
     // Function verified data
     private fun verifiedData(titleShow: String, textShow: String, type: Int) {
         val builder = AlertDialog.Builder(this)
-
+        var textMessage = textShow
         if (type == 1) {
             // type 1 for fields empty
-            builder.setTitle(titleShow)
-            builder.setMessage(getString(R.string.fields_required_description) + textShow)
-        } else if (type == 2) {
-            // type 2 for different passwords
-            builder.setTitle(titleShow)
-            builder.setMessage(textShow)
+            textMessage = getString(R.string.fields_required_description) + textShow
         }
+        builder.setTitle(titleShow)
+        builder.setMessage(textMessage)
         builder.setPositiveButton(R.string.agree, null)
         builder.setCancelable(false)
         builder.show()
     }
 
     // Function verify password same
-    private fun passwordSame(firstPassword: String, secondPassword: String): Boolean {
+    private fun isPasswordSame(firstPassword: String, secondPassword: String): Boolean {
         return firstPassword == secondPassword;
     }
 
     // Function register user success
-    private fun registerSuccess() {
-        Toast.makeText(this, "Resgistro Exitoso", Toast.LENGTH_SHORT).show()
+    private fun registerSuccess(data: User) {
+
+        val view = layoutInflater.inflate(R.layout.terms_and_conditions, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.title_tyc))
+        builder.setView(view)
+        builder.setPositiveButton(getString(R.string.agree)) { _, _ ->
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("User", data)
+            startActivity(intent)
+            this.cleanForm(false)
+        }
+        builder.setNegativeButton(getString(R.string.cancel), null)
+        builder.setCancelable(false)
+        builder.show()
+    }
+
+    private fun validateFields(component: TextView, compare: String, textOut: String) :String{
+        if (component.text.toString() == compare) {
+            return "$textOut | "
+        }
+        return ""
     }
 
 }
