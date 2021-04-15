@@ -42,30 +42,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         hobbiesChecked = BooleanArray(hobbiesNames.size)
-        // Button Clean Form
-        reset_button.setOnClickListener {
-            this.resetForm()
-        }
 
-        // Button show type document user
-        type_document_button.setOnClickListener{
-            this.getTypeDocument()
-        }
-
-        // Button show list hobbies user
-        hobbies_button.setOnClickListener{
-            this.getHobbies()
-        }
-
-        // Button show Date picker dialog
-        birth_date_button.setOnClickListener {
-            this.getBirthday()
-        }
-
-        // Function get data user
-        register_button.setOnClickListener {
-            this.register()
-        }
+        // Call functions
+        this.setupButtons()
     }
 
     // Function button reset
@@ -257,6 +236,36 @@ class MainActivity : AppCompatActivity() {
             return "$textOut | "
         }
         return ""
+    }
+
+    @RequiresApi(VERSION_CODES.N)
+    private fun setupButtons() {
+        // Button Clean Form
+        reset_button.setOnClickListener {
+            this.resetForm()
+        }
+
+        // Button show type document user
+        type_document_button.setOnClickListener{
+            this.getTypeDocument()
+        }
+
+        // Button show list hobbies user
+        hobbies_button.setOnClickListener{
+            this.getHobbies()
+        }
+
+        // Button show Date picker dialog
+        birth_date_button.setOnClickListener {
+            this.getBirthday()
+        }
+
+        // Function get data user
+        register_button.setOnClickListener {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                this.register()
+            }
+        }
     }
 
 }
